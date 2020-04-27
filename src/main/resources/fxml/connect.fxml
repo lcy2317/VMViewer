@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ConnectController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ConnectController"
+            stylesheets="@/css/connect.css">
     <children>
-        <RadioButton fx:id="radio1" layoutX="29.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="本地进程">
-            <toggleGroup>
-                <ToggleGroup fx:id="group"/>
-            </toggleGroup>
-        </RadioButton>
-        <RadioButton fx:id="radio2" disable="true" layoutX="183.0" layoutY="32.0" mnemonicParsing="false" text="远端进程"
-                     toggleGroup="$group"/>
-        <TableView fx:id="tableView" layoutY="60.0" prefHeight="340.0" prefWidth="360.0">
+        <fx:define>
+            <ToggleGroup fx:id="toggleGroup"/>
+        </fx:define>
+        <JFXRadioButton fx:id="radio1" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="本地进程" toggleGroup="$toggleGroup" />
+        <JFXRadioButton fx:id="radio2" layoutX="25.0" layoutY="46.0" text="远端进程" toggleGroup="$toggleGroup"/>
+
+        <ChoiceBox layoutX="115.0" layoutY="42.0" prefHeight="23.0" prefWidth="184.0" >
+            <items>
+                <FXCollections fx:factory="observableArrayList" />
+            </items>
+        </ChoiceBox>
+        <JFXButton layoutX="207.0" layoutY="73.0" prefHeight="23.0" prefWidth="90.0" text="创建新连接" />
+
+        <TableView fx:id="tableView" layoutY="102.0" prefHeight="298.0" prefWidth="360.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList" />
+            </items>
             <columns>
-                <TableColumn fx:id="pidCol" text="pid"/>
-                <TableColumn fx:id="pathCol" prefWidth="279.0" text="path"/>
+                <TableColumn fx:id="pidCol" text="pid">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pid" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <columns>
+                <TableColumn fx:id="pathCol" prefWidth="279.0" text="path">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="path" />
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
     </children>
