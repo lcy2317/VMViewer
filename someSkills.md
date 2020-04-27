@@ -1,7 +1,7 @@
 ## 用到的一些技术点
-JavaFX、sceneBuilder、jps、jstat、jmap
-推荐1.使用sceneBuilder绘制页面，再在fxml中修改
-推荐2.可以用fxml实现的就不要用Java代码实现
+JavaFX、sceneBuilder、jps、jstat、jmap  
+推荐1.使用sceneBuilder绘制页面，再在fxml中修改  
+推荐2.可以用fxml实现的就不要用Java代码实现  
 
 [toc]
 
@@ -99,7 +99,7 @@ JavaFX、sceneBuilder、jps、jstat、jmap
         public TableView<Student> table;
 
         @Override
-        ublic void initialize(URL location, ResourceBundle resources) {
+        public void initialize(URL location, ResourceBundle resources) {
         Student student = new Student();
         student.setId("01");
         student.setName("郦铖阳");
