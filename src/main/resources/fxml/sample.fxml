@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SampleController">
+   <children>
+     <TabPane fx:id="tabPane" layoutX="214.0" layoutY="27.0" prefHeight="758.0" prefWidth="904.0" tabClosingPolicy="UNAVAILABLE">
+       <tabs>
+         <Tab text="概览">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="595.0" />
+           </content>
+         </Tab>
+         <Tab text="内存">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+           </content>
+         </Tab>
+           <Tab text="线程">
+               <content>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+           </Tab>
+       </tabs>
+     </TabPane>
+      <ScrollPane fx:id="scrollPane" layoutY="27.0" prefHeight="507.0" prefWidth="215.0">
+         <content>
+            <VBox prefHeight="505.0" prefWidth="212.0" />
+         </content>
+      </ScrollPane>
+      <GridPane fx:id="gridPane" layoutY="534.0" prefHeight="251.0" prefWidth="215.0">
+         <children>
+               <TextField prefHeight="23.0" prefWidth="160.0" />
+               <TextField prefHeight="23.0" prefWidth="161.0" GridPane.columnIndex="1" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="23.0" prefWidth="1118.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="菜单">
+            <items>
+              <MenuItem mnemonicParsing="false" text="连接..." onAction="#connect"/>
+                <MenuItem mnemonicParsing="false" text="退出" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

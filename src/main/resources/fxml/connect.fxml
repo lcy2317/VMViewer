@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ConnectController">
+    <children>
+        <RadioButton fx:id="radio1" layoutX="29.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="本地进程">
+            <toggleGroup>
+                <ToggleGroup fx:id="group"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="radio2" disable="true" layoutX="183.0" layoutY="32.0" mnemonicParsing="false" text="远端进程"
+                     toggleGroup="$group"/>
+        <TableView fx:id="tableView" layoutY="60.0" prefHeight="340.0" prefWidth="360.0">
+            <columns>
+                <TableColumn fx:id="pidCol" text="pid"/>
+                <TableColumn fx:id="pathCol" prefWidth="279.0" text="path"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
