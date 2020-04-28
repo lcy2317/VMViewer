@@ -8,13 +8,17 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date 2020/4/27 22:59
  */
 public class RegisterCenter {
-    private static ConcurrentHashMap<String, Object> controllerMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Class, Object> controllerMap = new ConcurrentHashMap<>();
 
     private RegisterCenter() {
     }
-
-
-    public static ConcurrentHashMap getInstance() {
-        return controllerMap;
+    
+    @SuppressWarnings("unchecked")
+    public static <T> T getController(Class<T> cls) {
+        return (T) controllerMap.get(cls);
+    }
+    
+    public static void setController(Class cls, Object object) {
+        controllerMap.put(cls, object);
     }
 }
