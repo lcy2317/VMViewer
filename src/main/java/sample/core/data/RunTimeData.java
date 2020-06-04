@@ -1,5 +1,6 @@
 package sample.core.data;
 
+import sample.core.entity.ConnectionData;
 import sample.core.entity.JavaProcess;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public class RunTimeData {
     private volatile String Pid;
     //当前主机上的Java进程;
     private volatile List<JavaProcess> JavaProcess;
+    //所有连接信息
+    private volatile List<ConnectionData> connectionList;
 
 
     public synchronized String getPid() {
@@ -31,6 +34,15 @@ public class RunTimeData {
     public synchronized void setJavaProcess(List<sample.core.entity.JavaProcess> javaProcess) {
         JavaProcess = javaProcess;
     }
+
+    public synchronized List<ConnectionData> getConnectionList() {
+        return connectionList;
+    }
+
+    public synchronized void setConnectionList(List<ConnectionData> connectionList) {
+        this.connectionList = connectionList;
+    }
+
 
     private RunTimeData() {
     }

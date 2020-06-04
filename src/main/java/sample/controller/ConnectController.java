@@ -10,8 +10,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import sample.core.data.RunTimeData;
+import sample.core.entity.ConnectionData;
 import sample.core.entity.JavaProcess;
 import sample.core.parser.JpsResolver;
+import sample.core.utils.PathConst;
+import sample.core.utils.SerializeUtil;
 
 import java.net.URL;
 import java.util.List;
@@ -55,6 +58,10 @@ public class ConnectController implements Initializable {
                     //选中对应的线程pid
                     JavaProcess javaProcess = row.getItem();
                     runTimeData.setPid(javaProcess.getPid());
+                    //序列化所有连接信息
+                    SerializeUtil<ConnectionData> util = new SerializeUtil<>();
+                    util.serialize(PathConst.CONNECTION_DATA_PATH,runTimeData.getConnectionList());
+
                     System.out.println(javaProcess);
                     ((Stage)root.getScene().getWindow()).close();
                 }
