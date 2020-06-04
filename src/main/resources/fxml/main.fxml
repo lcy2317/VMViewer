@@ -46,8 +46,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="菜单">
             <items>
-              <MenuItem mnemonicParsing="false" text="连接..." onAction="#connect"/>
-                <MenuItem mnemonicParsing="false" text="退出" />
+              <MenuItem mnemonicParsing="false" text="连接" onAction="#connect"/>
+                <MenuItem mnemonicParsing="false" text="退出" onAction="#close"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

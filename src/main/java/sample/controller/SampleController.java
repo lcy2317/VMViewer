@@ -1,5 +1,6 @@
 package sample.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +35,13 @@ public class SampleController implements Initializable {
         menuBar.prefWidthProperty().bind(root.widthProperty());
     }
 
-    public void connect(ActionEvent actionEvent) {
+    @FXML
+    private void connect(ActionEvent actionEvent) {
         StageCreator.initStage("/fxml/connect.fxml",true);
+    }
+
+    @FXML
+    private void close(){
+        Platform.exit();
     }
 }
