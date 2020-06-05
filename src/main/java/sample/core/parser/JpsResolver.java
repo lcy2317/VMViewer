@@ -31,6 +31,7 @@ public class JpsResolver extends Resolver{
                     javaProcess.setPath(str[1]);
                 } else {
                     javaProcess.setPid(str[0]);
+                    javaProcess.setPath("");
                 }
                 javaProcessList.add(javaProcess);
                 content = commandReader.readLine();

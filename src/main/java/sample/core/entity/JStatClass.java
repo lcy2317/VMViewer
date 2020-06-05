@@ -1,13 +1,11 @@
 package sample.core.entity;
 
-import lombok.Data;
-
 /**
  * @Description 解析jstat -class pid对应的实体类
  * @Author lichengyang
  * @Date 2020/4/20 22:14
  */
-@Data
+
 public class JStatClass {
 
     private String loaded;
@@ -25,6 +23,46 @@ public class JStatClass {
         this.loadedSize = loadedSize;
         this.unloaded = unloaded;
         this.unloadedSize = unloadedSize;
+        this.time = time;
+    }
+
+    public String getLoaded() {
+        return loaded;
+    }
+
+    public void setLoaded(String loaded) {
+        this.loaded = loaded;
+    }
+
+    public String getLoadedSize() {
+        return loadedSize;
+    }
+
+    public void setLoadedSize(String loadedSize) {
+        this.loadedSize = loadedSize;
+    }
+
+    public String getUnloaded() {
+        return unloaded;
+    }
+
+    public void setUnloaded(String unloaded) {
+        this.unloaded = unloaded;
+    }
+
+    public String getUnloadedSize() {
+        return unloadedSize;
+    }
+
+    public void setUnloadedSize(String unloadedSize) {
+        this.unloadedSize = unloadedSize;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
         this.time = time;
     }
 }

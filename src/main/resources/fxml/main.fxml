@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SampleController">
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SampleController">
    <children>
      <TabPane fx:id="tabPane" layoutX="214.0" layoutY="27.0" prefHeight="758.0" prefWidth="904.0" tabClosingPolicy="UNAVAILABLE">
        <tabs>
@@ -24,30 +29,32 @@
            </Tab>
        </tabs>
      </TabPane>
-      <ScrollPane fx:id="scrollPane" layoutY="27.0" prefHeight="507.0" prefWidth="215.0">
+      <ScrollPane fx:id="scrollPane" layoutY="27.0" prefHeight="381.0" prefWidth="215.0">
          <content>
-            <VBox prefHeight="505.0" prefWidth="212.0" />
+             <VBox prefHeight="378.0" prefWidth="212.0">
+                <children>
+                    <TableView fx:id="tableView" prefHeight="378.0" prefWidth="212.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList" />
+                        </items>
+                        <columns>
+                            <TableColumn fx:id="alias" prefWidth="211.0" text="主机">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="alias" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </children>
+             </VBox>
          </content>
       </ScrollPane>
-      <GridPane fx:id="gridPane" layoutY="534.0" prefHeight="251.0" prefWidth="215.0">
-         <children>
-               <TextField prefHeight="23.0" prefWidth="160.0" />
-               <TextField prefHeight="23.0" prefWidth="161.0" GridPane.columnIndex="1" />
-         </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
       <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="23.0" prefWidth="1118.0">
         <menus>
           <Menu mnemonicParsing="false" text="菜单">
             <items>
-              <MenuItem mnemonicParsing="false" text="连接" onAction="#connect"/>
-                <MenuItem mnemonicParsing="false" text="退出" onAction="#close"/>
+              <MenuItem mnemonicParsing="false" onAction="#connect" text="连接" />
+                <MenuItem mnemonicParsing="false" onAction="#close" text="退出" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -62,5 +69,28 @@
           </Menu>
         </menus>
       </MenuBar>
+      <VBox layoutX="2.0" layoutY="432.0" prefHeight="352.0" prefWidth="212.0">
+         <children>
+               <TableView fx:id="tableViewProcess" prefHeight="353.0" prefWidth="212.0">
+                   <columns>
+                       <TableColumn fx:id="pidCol" text="pid">
+                           <cellValueFactory>
+                               <PropertyValueFactory property="pid" />
+                           </cellValueFactory>
+                       </TableColumn>
+                   </columns>
+                   <columns>
+                       <TableColumn fx:id="pathCol" prefWidth="131.0" text="path">
+                           <cellValueFactory>
+                               <PropertyValueFactory property="path" />
+                           </cellValueFactory>
+                       </TableColumn>
+                   </columns>
+               </TableView>
+         </children>
+      </VBox>
+      <Button layoutX="174.0" layoutY="408.0" mnemonicParsing="false" text="刷新" onMouseClicked="#refush"/>
+      <Label layoutX="2.0" layoutY="408.0" prefHeight="23.0" prefWidth="50.0" text="线程数：" />
+      <Label fx:id="count"  layoutX="52.0" layoutY="408.0" prefHeight="23.0" prefWidth="40.0" text="0" />
    </children>
 </AnchorPane>

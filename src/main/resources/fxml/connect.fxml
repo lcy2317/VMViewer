@@ -25,9 +25,6 @@
         <JFXButton layoutX="207.0" layoutY="73.0" prefHeight="23.0" prefWidth="90.0" text="创建新连接" />
 
         <TableView fx:id="tableView" layoutY="102.0" prefHeight="298.0" prefWidth="360.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList"/>
-            </items>
             <columns>
                 <TableColumn fx:id="pidCol" text="pid">
                     <cellValueFactory>
